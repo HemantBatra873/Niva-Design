@@ -32,6 +32,9 @@ importers:
       '@enterprise/design-tokens':
         specifier: workspace:*
         version: link:../../packages/design-tokens
+      lucide-react:
+        specifier: ^1.43.0
+        version: 1.43.0(react@19.2.8)
       react:
         specifier: ^19.0.0
         version: 19.2.8
