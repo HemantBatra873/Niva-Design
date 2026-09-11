@@ -63,7 +63,28 @@ const RADII_STEPS = [
 function ColorScale({ shades }: { shades: string[] }) {
   return (
     <div className="token-scale">
-      {shades.map(s => <div key={s} className={`token-scale-cell bg-${s}`} title={s} />)}
+      {shades.map(s => {
+        const cssVar = `--color-${s}`;
+        const shade = s.split('-').pop();
+        return (
+          <div
+            key={s}
+            className="token-scale-cell"
+            style={{ background: `var(${cssVar})` }}
+            title={`${cssVar}`}
+          >
+            <span style={{
+              display: 'block',
+              fontSize: '0.5rem',
+              textAlign: 'center',
+              paddingTop: '0.25rem',
+              color: Number(shade) >= 500 ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.5)',
+              fontFamily: 'monospace',
+              lineHeight: 1,
+            }}>{shade}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

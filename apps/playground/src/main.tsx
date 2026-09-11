@@ -173,6 +173,12 @@ function App() {
   const [background, setBackground] = useState('');
   const [activeSubTab, setActiveSubTab] = useState('all');
 
+  // Sync theme to <html> so CSS [data-theme] selectors cascade from root
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    return () => document.documentElement.removeAttribute('data-theme');
+  }, [theme]);
+
   // Sync hash on selection
   const selectComp = useCallback((id: string) => {
     setSelectedId(id);

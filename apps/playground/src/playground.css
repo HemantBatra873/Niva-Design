@@ -1,4 +1,36 @@
 /* ────────────────────────────────────────────
+   Token bridge — maps semantic tokens → shorthand vars
+   Works for all 4 themes: light / dark / hc-light / hc-dark
+──────────────────────────────────────────── */
+:root,
+[data-theme="light"],
+[data-theme="dark"],
+[data-theme="hc-light"],
+[data-theme="hc-dark"] {
+  --background:         var(--semantic-color-background-default);
+  --foreground:         var(--semantic-color-text-primary);
+  --card:               var(--semantic-color-background-surface);
+  --card-foreground:    var(--semantic-color-text-primary);
+  --popover:            var(--semantic-color-background-surface);
+  --popover-foreground: var(--semantic-color-text-primary);
+  --primary:            var(--semantic-color-action-primary);
+  --primary-foreground: var(--semantic-color-text-inverse);
+  --secondary:          var(--semantic-color-action-secondary);
+  --secondary-foreground: var(--semantic-color-text-primary);
+  --muted:              var(--semantic-color-background-muted);
+  --muted-foreground:   var(--semantic-color-text-muted);
+  --accent:             var(--semantic-color-background-subtle);
+  --accent-foreground:  var(--semantic-color-text-primary);
+  --destructive:        var(--semantic-color-action-danger);
+  --destructive-foreground: var(--semantic-color-text-inverse);
+  --border:             var(--semantic-color-border-default);
+  --input:              var(--semantic-color-border-default);
+  --ring:               var(--semantic-color-border-focus);
+  --font-sans:          var(--font-family-sans);
+  --font-mono:          var(--font-family-mono);
+}
+
+/* ────────────────────────────────────────────
    Base resets
 ──────────────────────────────────────────── */
 * { box-sizing: border-box; }
@@ -504,8 +536,8 @@ body {
 .token-swatch-row { display: flex; gap: 0.25rem; border-radius: 0.5rem; overflow: hidden; height: 2.5rem; }
 .token-swatch { flex: 1; min-width: 0; cursor: default; transition: flex 0.2s; }
 .token-swatch:hover { flex: 2; }
-.token-scale { display: grid; grid-template-columns: repeat(10, 1fr); gap: 0; height: 2rem; border-radius: 0.5rem; overflow: hidden; }
-.token-scale-cell { }
+.token-scale { display: grid; grid-template-columns: repeat(10, 1fr); gap: 0; height: 3rem; border-radius: 0.5rem; overflow: hidden; }
+.token-scale-cell { cursor: default; transition: flex 0.15s; overflow: hidden; }
 
 /* Interactive sandbox */
 .sandbox-split {
