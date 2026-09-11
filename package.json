@@ -7,7 +7,7 @@
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
-    "dev": "pnpm --filter @enterprise/playground dev"
+    "dev": "corepack pnpm --filter @enterprise/playground dev"
   },
   "devDependencies": { "@types/react": "^19.0.0", "@types/react-dom": "^19.0.0", "typescript": "^5.7.3", "vite": "^6.0.0", "vitest": "^3.0.0" }
 }
